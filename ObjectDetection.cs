@@ -7,6 +7,7 @@ using StardewValley;
 using StardewValley.Pathfinding;
 using StardewValley.TerrainFeatures;
 using StardewValley.Objects;
+using StardewValley.Tools;
 
 namespace ActionQueuer;
 
@@ -15,10 +16,10 @@ public class ObjectDetection
     public static bool hasClickedBreakable(GameLocation location, Vector2 tile)
     {
         return IsBreakable(location, tile);
-
     }
     private static bool IsBreakable(GameLocation location, Vector2 tile)
     {
+        Console.WriteLine($"Required Tool: {ToolDetection.GetRequiredTool(location, tile)?.GetType()}");
         // Small objects (stones, ore nodes, weeds, twigs, etc.)
         if (location.objects.TryGetValue(tile, out StardewValley.Object obj))
         {
@@ -50,12 +51,6 @@ public class ObjectDetection
                 return true;
                 
             }
-
-            if (feature is Bush bush && bush.size.Value == Bush.smallBush)
-            {
-                Console.WriteLine("Bush");
-                return true; // small bushes are whackable with tools
-            }
         }
 
         // Large breakable things (stumps, logs, boulders)
@@ -65,7 +60,6 @@ public class ObjectDetection
             {
                 Console.WriteLine("Large Breakable");
                 return true;
-                
             }
         }
 
