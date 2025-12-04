@@ -1,0 +1,10 @@
+﻿{
+  "Name": "ActionQueuer",
+  "Author": "MysticalAsian",
+  "Version": "1.0.0",
+  "Description": "Queue up actions that move your character to complete one action to another.",
+  "UniqueID": "MA.ActionQueuer",
+  "EntryDll": "ActionQueuer.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": []
+}
